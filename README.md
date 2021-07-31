@@ -1,8 +1,8 @@
 # Introduction
 Congrats in passing the first round of interview! 
 Kindly find the project assignment. 
-You have 2 days to complete your assignment. 
-Do remember to consistently push your progress so that we are able to track! 
+You have 12 hours to complete your assignment. 
+Do remember to consistently commit your progress throughout your development. 
 
 # Getting Started
 You will need to use the **following technologies** for the project: 
@@ -50,10 +50,6 @@ Features completed - 30% <br />
 Time - 20%<br />
 Code Quality 50% <br />
 ______________________________
-
-
-**BONUS - STRETCH PROJECT**<br />
-Create a form that after submitting with the relevant interview details (interview questions, max video length) generates a unique URL that allows companies to share the link to candidates. 
 
 
 # Submission <br />
