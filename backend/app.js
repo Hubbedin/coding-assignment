@@ -7,22 +7,20 @@ var logger = require('morgan');
 const { auth } = require('express-openid-connect');
 var configAuth = require('./config/auth');
 // config env
-var dotenv = require('dotenv');
+var dotenv = require('dotenv').config();
 // setup the connection
 var { connect } = require('./config/connection');
 
-
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var candidateRouter = require('./routes/candidate');
 var questionRouter = require('./routes/question');
+var videoRouter = require('./routes/video');
 
 var app = express();
 
 // set-auth0
 app.use(auth(configAuth));
 // connection-to-db
-dotenv.config();
 connect(process.env.MONGO_CONNECTION_URL);
 
 // view engine setup
@@ -39,6 +37,7 @@ const api = process.env.API_V1;
 app.use('/', indexRouter);
 app.use(`${api}/candidate`, candidateRouter);
 app.use(`${api}/question`, questionRouter);
+app.use(`${api}/video`, videoRouter);
 
 app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');

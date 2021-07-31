@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+router.get('/dashboard', (req, res, next) => res.send("It's work!"));
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  const isLogout = req.query.is_logout;
+
+  res.status(200).json({
+    time: Date.now(),
+    success: true,
+    isLogout
+  })
 });
 
 module.exports = router;
