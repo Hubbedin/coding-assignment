@@ -7,10 +7,11 @@
 var app = require('../app');
 var debug = require('debug')('backend:server');
 var https = require('https');
+var http = require('http');
 
 const fs = require('fs');
-const key = fs.readFileSync('../key.pem');
-const cert = fs.readFileSync('../cert.pem');
+// const key = fs.readFileSync('../key.pem');
+// const cert = fs.readFileSync('../cert.pem');
 
 /**
  * Get port from environment and store in Express.
@@ -22,17 +23,17 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-
-var server = https.createServer({key, cert}, app);
+var server = http.createServer(app);
+// var server = https.createServer({key, cert}, app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+
 server.on('error', onError);
 server.on('listening', onListening);
-
 /**
  * Normalize a port into a number, string, or false.
  */
